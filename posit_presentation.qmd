@@ -1,0 +1,575 @@
+---
+title: "Quarto: A Multifaceted Publishing Powerhouse for Medical Researchers"
+format:
+  clean-revealjs:
+    self-contained: true
+    preview-links: false
+    slide-number: false
+    code-line-numbers: true
+    logo: images/logo.png
+    css: styles.css
+author:
+  - name: Joshua J. Cook, M.S. DS, M.S. CRM, ACRP-PM, CCRC
+    orcid: 0000-0003-3508-7065
+    email: jcook0312@outlook.com
+    affiliations: Adjunct Professor / Clinical Researcher / Data Scientist
+date: last-modified
+bibliography: refs.bib
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+## Biography {.scrollable}
+
+::: normalfont
+::: columns
+::: {.column width="40%"}
+![](images/grad.jpg){fig-align="left" width="430" height="545"}
+:::
+
+::: {.column width="60%"}
+-   **2021** - B.S., Biomedical Science, *University of West Florida*
+
+-   **2023** - M.S., Clinical Research Management, *Wake Forest
+    University*
+
+-   **2023** - ACRP Certifications (Project Management / Clinical
+    Research Coordinator)
+
+-   **2024** - M.S., Data Science, *University of West Florida*
+
+-   **Work History:** [Adjunct Professo]{.underline}r (Anatomy &
+    Physiology), Research Quality Analyst, Clinical Research Coordinator
+:::
+:::
+:::
+
+# Medical Research {background-color="#40666e"}
+
+## Medical Research {.smaller}
+
+### Not Just Pharma!
+
+-   Academia (Ph.D.)
+
+-   Healthcare/Industry (M.D., D.O., RN, MSN-NP, Etc.)
+
+-   [**OR, you are responsible for preparing these documents for someone
+    in these roles.**]{.underline}
+
+-   **General Process:**
+
+![](images/process.png){fig-align="center" width="547" height="418"}
+
+## Medical Research {.smaller}
+
+### Publication Needs
+
+1.  Statistical Report - usually #1; sometimes preceded by study
+    planning analyses, such as simulations
+
+2.  Interim Reports
+
+3.  Interim Presentations (Regulators, Sponsors, Stakeholders,
+    Conferences, Grants)
+
+4.  Final Report
+
+5.  Final Presentation
+
+6.  Manuscript
+
+7.  Website/Blogs
+
+8.  [**NEW - Patient/Participant Material**]{.underline}
+
+9.  Regulatory Submission
+
+This is [**a LOT of work for medical researchers**]{.underline},
+especially if changes are made to the data/analyses at any stage.
+
+## Medical Research
+
+### Traditional Methods {.smaller}
+
+A mess...
+
+![](images/process_2.png){fig-align="center" width="730" height="435"}
+
+# Quarto {background-color="#40666e"}
+
+## Quarto {.smaller}
+
+### An Introduction
+
+**Quarto** (often described as the **next generation of R Markdown**)
+emerges as a promising solution capable of:
+
+-   bridging the gaps between different programming languages
+
+-   allowing teams to collaborate more effectively
+
+-   enabling the efficient integration of diverse methodologies
+
+-   with [**Quarto Projects**]{.underline}, allows for the creation of
+    various project types from a single source, with multiple output
+    formats.
+
+**Quarto Project Types** refer to a type of organization of files (ex:
+report, website, manuscript, or presentation) while **Quarto Project
+Formats** refer to the output file type of a document (ex: HTML, PDF,
+DOCX).
+
+## Quarto {.smaller .scrollable}
+
+### General Setup
+
+As with any project in RStudio^®^, a [**primary folder**]{.underline}
+should be setup that will be used as the working directory. This is
+where the Quarto project (.*Rproj*) file will be housed, as well as any
+required subfolders.
+
+[**Quarto Projects**]{.underline} are directories that provide a central
+location for all files, images, and outputs.
+
+**This is a key concept for this presentation.**
+
+Furthermore, Quarto Projects provide:
+
+-   **Shared YAML** configuration and **metadata** (ex: tables of
+    contents and bibliographies).
+
+-   Organized rendering of **multiple project formats from a single
+    file** (ex: PDF and HTML).
+
+-   **Package and environment version control** (for regulatory
+    purposes).
+
+-   **Directory-specific settings and preferences** (ex: code formatting
+    and view panes).
+
+-   **Virtual Environments.**
+
+There are *many* Quarto project types available, but for this first
+example, we will create a new **Quarto Project** (in the form of a
+[report]{.underline}) within RStudio^®^ using the “Create Project”
+button in the toolbar. Choose any name and location for your project,
+just make sure you can remember and find it!
+
+![](images/create.png){width="418" height="336"}
+
+![](images/type.png){width="420"}
+
+## Quarto {.smaller .scrollable}
+
+### Quarto Project Defaults & Layout
+
+-   Your Quarto Project will open to a [template Quarto
+    Markdown]{.underline} *(.qmd)* file with a [YAML
+    header]{.underline}, some [markdown text]{.underline}, and an
+    [example R code chunk.]{.underline}
+
+-   If another programming language is preferred, {r} can be changed to
+    {python}, etc.
+
+-   The tool bar gives text-editing options for markdown and allows for
+    the creation of more chunks as needed.
+
+-   This is just the basic layout, and many more components can be added
+    to a Quarto Markdown to enrich content.
+
+![](images/clipboard-480932952.png){width="690" height="251"}
+
+## Quarto {.smaller .scrollable}
+
+### The Importance of YAML
+
+Every Quarto Markdown *(.qmd*) file begins with a **YAML** (Yet Another
+Markup Language) header, which is a versatile human-readable data
+serialization language.
+
+YAML is primarily used in [configuration files]{.underline} and data
+representation in the form of [**maps**]{.underline} (key-value pairs)
+and [**lists**]{.underline} (sequences of values).
+
+YAML is delineated with three dashes (—) and provides the configuration
+of a Quarto document with many fields available for specification
+depending on the quarto project format (ex: HTML and PDF).
+
+Some examples of YAML fields that we have found especially helpful
+include:
+
+-   **Title/subtitle** – titles of the document.
+
+-   **Date** – date of the document (*can be “today”).*
+
+-   **Author** – listing of authors for the document.
+
+-   **Abstract** – provides a summary of the document.
+
+-   **Theme** – theme of the entire document (*many formats available*).
+
+-   **Toc** – table of contents (*many formats available*).
+
+-   **Bibliography** – document bibliography (*BibTeX or CSL*).
+
+-   **Crossref** – configuration for cross-reference labels and
+    prefixes.
+
+-   **Format** – designates the output format (*HTML by default*).
+
+-   **Embed-resources** - incorporates external dependencies into a
+    standalone HTML file (i*.e., self-contained files*).
+
+For the full list of YAML options, please refer to the Quarto
+documentation ([Quarto –
+Reference](https://quarto.org/docs/reference/)).
+
+# Medical Research Case Example {background-color="#40666e"}
+
+## Quarto Case Example
+
+### File Structure
+
+``` plaintext
+/positconf
+├── /Data
+│   ├── 2022_data.rds
+│   └── 2021_data.rds
+├── /Analysis
+│   ├── data_processing.qmd
+│   └── data_missing.qmd
+├── /Images
+│   ├── logo.jpg
+│   └── logo_2.jpg
+├── /Manuscript
+│   ├── Manuscript.Rproj
+│   └── index.qmd
+│   └── quarto.yml
+├── /Presentation
+│   ├── Presentation.Rproj
+│   └── index.qmd
+│   └── quarto.yml
+├── Report.Rproj
+├── index.qmd
+├── quarto.yml
+```
+
+## Quarto Case Example
+
+### YAML for a Report
+
+``` plaintext
+/positconf
+├── Report.Rproj
+├── index.qmd
+├── quarto.yml
+```
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE
+#| code-line-numbers: "1-7|8-11"
+
+---
+title: |
+  ![](Images/logo.jpg){fig-align="left" width="500"}  \  
+    \  
+    Project BRFSS Weekly Update
+author: "Joshua J. Cook, M.S. DS, M.S. CRM, \ ACRP-PM, CCRC, Swann A. Adams Ph.D., M.S., FACE"
+date: today
+format:
+  html:
+    html-table-processing: none
+embed-resources: true
+toc: true
+---
+```
+
+## Quarto Case Example {.smaller .scrollable}
+
+### The Report
+
+![](images/clipboard-2136297575.png)
+
+![](images/clipboard-1619737040.png)
+
+![](images/clipboard-3064409893.png){width="687"}
+
+**Importantly:** the code nor figure are not being generated in within
+the report itself!
+
+## Quarto Case Example
+
+### The Report
+
+Goal in a nutshell: [maintain quality and consistency through
+modularity.]{.underline}
+
+**Quarto Shortcodes:** special markdown directives that generate
+content.
+
+**Key Shortcodes:**
+
+-   **embed** - embeds cells from Quarto markdown (.qmd) file or a
+    Jupyter (.ipynb) notebook.
+
+-   **include** - direct copy/paste of content from another Quarto
+    markdown or Jupyter notebook.
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "1|3"
+
+{{< include Analysis/data_processing.qmd >}} # will include EVERYTHING from the file
+
+{{< embed Analysis/data_missing.qmd#fig-missing-1 >}} # will only include a SPECIFIC figure
+```
+
+## Quarto Case Example {.smaller .scrollable}
+
+### YAML for a Manuscript
+
+``` plaintext
+/positconf
+├── /Manuscript
+│   ├── Manuscript.Rproj
+│   └── index.qmd
+│   └── quarto.yml
+```
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE
+#| code-line-numbers: "1-13|14-15|16-20"
+
+---
+title: Assessment of Temporal Trends in HPV Vaccination, Cervical Cancer Screening, and Diagnosis Among LGBTQ+ Individuals
+authors:
+  - name: Joshua J. Cook, M.S. DS, M.S. CRM, ACRP-PM, CCRC
+    affiliation: The University of South Carolina
+    roles: data analysis, manuscript writing
+    corresponding: true
+  - name: Swann Arp Adams, Ph.D., FACE, M.S.
+    affiliation: The University of South Carolina
+    roles: data analysis, manuscript writing
+    corresponding: true
+bibliography: references.bib
+abstract: "The full progress of our project can be followed in the attached Chill and Chat log. In summary, we have extracted 2022-2014 data from the Centers for Disease Control (CDC) Behavioral Risk Factor Surveillance System (BRFSS) datasets. The cutoff for 2014 was determined based on initial exploratory data analysis (EDA), which revealed that Sexual Orientation and Gender Identity (SOGI) data collection began in that year. The initial report (also attached) shows the progress in our EDA for identify our variables of interest, which includes 38 of the 200+ variables in the BRFSS dataset. Only 3 variables have missing values, which we plan to impute before analysis. We are also awaiting 2023 data to be released within the next month, which will complete our 10-year dataset which is often required for temporal studies of this nature. In the meantime, we are continuing to develop our analysis methodology via the technical papers and complete initial analyses which we will expand to 2023 once released. We plan on submitting our abstract to ASPO in September when calls open, and the draft manuscript over the next 6 months."
+format:
+  pdf: default
+  plos-pdf:
+    journal: 
+      id: globalpublichealth
+    keep-tex: true  
+---
+```
+
+## Quarto Case Example {.smaller .scrollable}
+
+### The Manuscript
+
+![](images/clipboard-1827865736.png){width="595" height="639"}
+
+![](images/clipboard-1022182594.png){width="595" height="597"}
+
+Again, using shortcodes:
+
+```{r}
+#| eval: false
+#| echo: true
+
+{{< embed Analysis/data_missing.qmd#fig-missing-1 >}} # will only include a SPECIFIC figure
+```
+
+## Quarto Case Example {.smaller .scrollable}
+
+### YAML for a Presentation
+
+``` plaintext
+/positconf
+├── /Presentation
+│   ├── Presentation.Rproj
+│   └── index.qmd
+│   └── quarto.yml
+```
+
+```{r}
+#| eval: FALSE
+#| echo: TRUE
+#| code-line-numbers: "|3-10"
+
+---
+title: "Assessment of Temporal Trends in HPV Vaccination, Cervical Cancer Screening, and Diagnosis Among LGBTQ+ Individuals"
+format:
+  clean-revealjs:
+    self-contained: true
+    preview-links: true
+    slide-number: false
+    code-line-numbers: true
+    logo: ../Images/logo_2.jpg
+    css: styles.css
+author:
+  - name: Joshua J. Cook
+    orcid: 0000-0003-3508-7065
+    email: jcook0312@outlook.com
+    affiliations: Adjunct Professor / Clinical Researcher / Data Scientist
+date: last-modified
+bibliography: refs.bib
+editor: 
+  markdown: 
+    wrap: 72
+---
+```
+
+## Quarto Case Example {.smaller .scrollable}
+
+### The Presentation
+
+![](images/clipboard-1088875303.png){width="638"}
+
+![](images/clipboard-2851995800.png){width="640"}
+
+```{r}
+#| eval: false
+#| echo: true
+
+{{< embed Analysis/data_missing.qmd#fig-missing-1 >}} # will only include a SPECIFIC figure
+```
+
+Furthermore, if the researcher prefers PowerPoint, the **format can be
+changed to output to .pptx.**
+
+Importantly, the updated figures, tables, etc. will still be cleanly
+output **for them to use in their presentations.**
+
+## Quarto Case Example
+
+### The Key Points
+
+1.  All of these **documents are frequently used by medical
+    researchers.**
+
+2.  If an error is identified, or something about the data, tables, or
+    figures needs to be changed, **simply altering the files in
+    /Analysis will prompt all the documents to update when they are next
+    rendered.**
+
+3.  If **another template is needed** (ex: when being rejected from one
+    journal), it is easy to switch while retaining all original content.
+
+4.  Even if the researcher prefers traditional PowerPoint or Word
+    methods, this system still offers **protection against redundancy
+    when updates to analysis code are needed.**
+
+5.  In other words, [**we are effectively moving beyond
+    copy/paste.**]{.underline}
+
+# Wrapping Up {background-color="#40666e"}
+
+## Advanced Features {.smaller .scrollable}
+
+### Just a Few
+
+**1. In-line Programming**
+
+```{r}
+#| echo: true
+
+x <- 2+2
+```
+
+`r x` is currently the value of x.
+
+**2. Dynamically Updating -** using quarto.yml
+
+![](images/clipboard-557801892.png){width="605" height="187"}
+
+**3. Templates** (Two used here - just install using terminal and define
+in YAML as above):
+
+-   [quarto-journals/plos: Quarto template for Public Library of Science
+    (github.com)](https://github.com/quarto-journals/plos) (Manuscript)
+
+-   <https://github.com/grantmcdermott/quarto-revealjs-clean#readme>
+    (Presentation)
+
+**4. Collaboration Tools Available -** notes, highlighting, commenting
+with Hypothesis
+
+**5. Works with Zotero Libraries -** possibly some compatibility with
+EndNote
+
+**6. Enhancing Participant Communication** - very quick release of
+presentation material to providers
+
+**7. Speeding up the Delivery of Treatments** - accelerating the
+conversion of statistical reports into manuscripts and regulatory
+documents (which can follow templates and get updated after content is
+altered!)
+
+## Conclusion
+
+### Quarto is a Multifaceted Publishing Powerhouse for Medical Researchers
+
+-   Allows us to **efficiently create various polished formats from a
+    single source** document (in this case, stored in the /Analysis
+    folder).
+
+-   **Templates** available to support a wide array of submission
+    requirements (reports, manuscripts, presentations) with **tools for
+    collaboration** (notes, highlighting, commenting).
+
+-   **Enhances participant communication** and **(hopefully) speeds up
+    the delivery of treatments** by reducing time-spent converting
+    between document types.
+
+## Conclusion
+
+### Limitations
+
+-   Setup and organization **may not be appropriate for all projects**
+    especially if smaller and publication needs are not extensive.
+
+-   **Tables seem to have a hard time being embed** from another file
+    (workaround: programmed into the primary .qmd).
+
+-   Thinking about ways to **reuse markdown text** similar to the
+    embedding process for code/figures (LLMs?).
+
+## Acknowledgements & Contact Information {.smaller}
+
+### \*Actively seeking a full-time position\*
+
+Joshua J. Cook thanks Nathaniel Nicklaus, as well as his mentors, Dr.
+Swann Adams, Louise Hadden, Dr. Achraf Cohen, and Kirk Paul Lafler, as
+well as Richann Watson and Troy Martin Hughes for their general guidance
+and mentorship.
+
+Special thanks to Mine Cetinkaya-Rundel, who gave an hour-long
+presentation on this topic at R/Medicine 2024. [R/Medicine: Quarto for
+Reproducible Medical Manuscripts
+(youtube.com)](https://www.youtube.com/watch?v=NK1onTLcgY4)
+
+::: normalfont
+::: columns
+::: {.column width="40%"}
+**Your comments and questions are valued and encouraged. Contact the
+author at:**
+
+Joshua J. Cook, M.S. DS, M.S. CRM, ACRP-PM, CCRC
+
+Adjunct Professor / Clinical Researcher / Data Scientist
+
+Website: <https://joshua-j-cook-portfolios.netlify.app/>
+
+Email: [jcook0312\@outlook.com](mailto:jcook0312@outlook.com)
+:::
+
+::: {.column width="60%"}
+![](images/contact.png){fig-align="center" width="223" height="207"}
+:::
+:::
+:::
